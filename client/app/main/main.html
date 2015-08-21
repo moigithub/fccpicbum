@@ -11,7 +11,30 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
+      <div id="newpicform">
+        <form name="picform" novalidate>
+          <label>
+            Title
+            <input type="text" name="title" ng-model="pic.title">
+          </label>
+          <label>
+            Source (http link)
+            <input type="text" name="link" ng-model="pic.link">
+          </label>
+          <button type="submit" ng-click="addPic()">Submit</button>
+        </form>
+      </div>
+
+
+      <div class="imglist">
+        <div class="img" ng-repeat="image in imgList">
+          <img style="width:200px;height:200px;" ng-src="{{image.link}}" alt="{{image.description}}">
+          <span>{{image.description}}</span>
+          <span><a href="#">{{image.userid}}</a></span>
+          <span>likes: {{image.userlikes.length}}</span>
+          <button ng-click="meLike(image)">I Like</button>
+        </div>
+      </div>
 
     </div>
   </div>
