@@ -10,7 +10,7 @@ exports.index = function(req, res) {
     .populate( {path:'user', select: 'name'})
     .exec(function (err, images) {
       if(err) { return handleError(res, err); }
-      console.log(images[0]);
+  //    console.log(images[0]);
       return res.status(200).json(images);
   });
 };
@@ -18,7 +18,7 @@ exports.index = function(req, res) {
 
 // Get a all user images
 exports.userImages = function(req, res) {
-  Image.find({userid:req.params.id}, function (err, image) {
+  Image.find({user:req.params.id}, function (err, image) {
     if(err) { return handleError(res, err); }
     if(!image) { return res.status(404).send('Not Found'); }
     return res.json(image);

@@ -8,7 +8,7 @@ angular.module('basej5pintApp')
 
     $http.get("/api/images").success(function(images){
       $scope.imgList=images;
-      console.log(images);
+      //console.log(images);
     });
 
 
