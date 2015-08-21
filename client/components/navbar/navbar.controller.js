@@ -5,6 +5,9 @@ angular.module('basej5pintApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
+    },{
+      'title': 'My Picboard',
+      'link': '/picboard'
     }];
 
     $scope.isCollapsed = true;

@@ -11,6 +11,16 @@ exports.index = function(req, res) {
   });
 };
 
+
+// Get a all user images
+exports.userImages = function(req, res) {
+  Image.find({userid:req.params.id}, function (err, image) {
+    if(err) { return handleError(res, err); }
+    if(!image) { return res.status(404).send('Not Found'); }
+    return res.json(image);
+  });
+};
+
 // Get a single image
 exports.show = function(req, res) {
   Image.findById(req.params.id, function (err, image) {
@@ -49,7 +59,7 @@ exports.destroy = function(req, res) {
     if(!image) { return res.status(404).send('Not Found'); }
     image.remove(function(err) {
       if(err) { return handleError(res, err); }
-      return res.status(204).send('No Content');
+      return res.status(204).send(req.params.id);
     });
   });
 };
