@@ -5,9 +5,13 @@ var Image = require('./image.model');
 
 // Get list of images
 exports.index = function(req, res) {
-  Image.find(function (err, images) {
-    if(err) { return handleError(res, err); }
-    return res.status(200).json(images);
+  Image
+    .find()
+    .populate( {path:'user', select: 'name'})
+    .exec(function (err, images) {
+      if(err) { return handleError(res, err); }
+      console.log(images[0]);
+      return res.status(200).json(images);
   });
 };
 
@@ -44,7 +48,7 @@ exports.update = function(req, res) {
   Image.findById(req.params.id, function (err, image) {
     if (err) { return handleError(res, err); }
     if(!image) { return res.status(404).send('Not Found'); }
-    var updated = _.merge(image, req.body);
+    var updated = _.extend(image, req.body);
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.status(200).json(image);
@@ -59,7 +63,7 @@ exports.destroy = function(req, res) {
     if(!image) { return res.status(404).send('Not Found'); }
     image.remove(function(err) {
       if(err) { return handleError(res, err); }
-      return res.status(204).send(req.params.id);
+      return res.status(204).send("Deleted");
     });
   });
 };

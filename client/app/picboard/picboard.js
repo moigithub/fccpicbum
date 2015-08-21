@@ -5,6 +5,7 @@ angular.module('basej5pintApp')
     $routeProvider
       .when('/picboard', {
         templateUrl: 'app/picboard/picboard.html',
-        controller: 'PicboardCtrl'
+        controller: 'PicboardCtrl',
+        authenticate: true
       });
   });

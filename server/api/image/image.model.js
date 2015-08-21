@@ -7,7 +7,7 @@ var ImageSchema = new Schema({
   description: String,
   link: String,
   userlikes: Array,
-  userid: { type:Schema.ObjectId, ref:"User"}
+  user: { type: Schema.Types.ObjectId, ref: 'User'}
 });
 
 module.exports = mongoose.model('Image', ImageSchema);
