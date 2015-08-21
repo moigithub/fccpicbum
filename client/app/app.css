@@ -31,6 +31,11 @@
  * App-wide Styles
  */
 
+
+.hero-unit {
+    margin-bottom: 10px;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -41,15 +46,37 @@
 
 .imgbum {
     width:240px;
-    height:240px;
+    height:auto;
     float:left;
-    margin: 5px;
-    padding: 15px;
+    margin-bottom: 10px;
+    margin-right: 10px;
     border-radius: 10px;
-    border: 3px solid #444;
+    border: 5px solid #444;
+    position: relative;
 }
 
 .imgbum img {
     width: 100%;
     
+}
+
+.pic {
+    overflow: hidden;
+    max-width: 240px;
+    max-height: 240px;
+}
+
+.grid-item { width: 240px; }
+
+.desc {
+    background-color: #93CE43;
+    color: blue;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 0px 0px 10px 10px;
+    width:100%;
+}
+
+.desc button {
+    float:right;
 }

@@ -5,13 +5,19 @@
     <div class="col-lg-12">
 
       <div class="imglist">
-        <div class="imgbum" ng-repeat="image in imgList">
-        	
-          <img ng-src="{{image.link}}" alt="{{image.description}}">
-          <div class="desc">{{image.description}}</div>
-          <span class="user"><a href="/user/{{image.userid}}">{{image.userid}}</a></span>
-          <span class="likescount">likes: {{image.userlikes.length}}</span>
-          <button ng-click="meLike(image)">I Like</button>
+        <div class="grid">
+          <div class="imgbum" ng-repeat="image in imgList">
+            
+            <div class="pic">
+              <img ng-src="{{image.link}}" alt="{{image.description}}">
+            </div>
+            <div class="desc"><p>{{image.description}}</p>
+              <span class="user"><a href="/user/{{image.user._id}}">{{image.user.name}}</a></span>
+              <span class="likescount">likes: {{image.userlikes.length}}</span>
+              <button ng-click="meLike(image)">I Like</button>
+            </div>  
+            
+          </div>
         </div>
       </div>
 
