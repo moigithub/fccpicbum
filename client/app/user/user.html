@@ -6,7 +6,7 @@
 
       <div class="imglist">
         <div class="imgbum" ng-repeat="image in imgList">
-        	<button ng-click="remove(image)">X</button>
+        	
           <img ng-src="{{image.link}}" alt="{{image.description}}">
           <div class="desc">{{image.description}}</div>
           <span class="user"><a href="/user/{{image.userid}}">{{image.userid}}</a></span>
