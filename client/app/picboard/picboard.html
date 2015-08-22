@@ -19,10 +19,10 @@
 				<p>
 					<label>
 						Source (http link)
-						<input type="text" name="link" ng-model="pic.link">
+						<input id="imgsrc" type="text" name="link" ng-model="pic.link">
 					</label>
 				</p>
-				<button type="submit" ng-click="addPic()">Submit</button>
+				<button id="submit" type="submit" ng-click="addPic()">Submit</button>
 			</form>
 		</div>
 
@@ -45,6 +45,14 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$('#imgpreview').error(function(){
+        $(this).attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png');
+	});
+});
+</script>
 
 <footer class="footer">
   <div class="container">
