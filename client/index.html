@@ -95,11 +95,17 @@
   <script type="text/javascript">
   $(document).ready(function(){
 
-    $('.grid').masonry({
+    $('.imglist').masonry({
       // options
       itemSelector: '.grid-item',
-      columnWidth: 260,
-      transitionDuration: '0.3s'
+      columnWidth: 200,
+      transitionDuration: '0.3s',
+      isAnimated: true,
+      animationOptions: {
+        duration: 750,
+        easing: 'linear',
+        queue: false
+      }
     });
 
     $('img').error(function(){

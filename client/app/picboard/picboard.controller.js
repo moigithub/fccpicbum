@@ -4,7 +4,7 @@ angular.module('basej5pintApp')
   .controller('PicboardCtrl', function ($scope, $http, Auth) {
     $scope.imgList=[];
     $scope.getCurrentUser = Auth.getCurrentUser;
-    $scope.pic={link:""};
+    $scope.pic={link:"", size:"Standard"};
 
     $http.get("/api/images/user/"+$scope.getCurrentUser()._id).success(function(images){
       $scope.imgList=images;
@@ -18,6 +18,7 @@ angular.module('basej5pintApp')
       var picObj= {
         description:$scope.pic.title,
         link:$scope.pic.link,
+        size:$scope.pic.size,
         userlikes:[],
         user:$scope.getCurrentUser()._id
       };
@@ -51,6 +52,13 @@ console.log(picObj);
         });
       }
     };
+
+
+
+    $scope.getClass=function(){
+      return $scope.pic.size;
+    }
+
 
   });
 

@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 var ImageSchema = new Schema({
   description: String,
   link: String,
+  size: String,  // standard, mediumW, mediumT, mediumWT
   userlikes: Array,
   user: { type: Schema.Types.ObjectId, ref: 'User'}
 });

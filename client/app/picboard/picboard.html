@@ -4,11 +4,13 @@
   <div class="row">
     <div class="col-lg-12">
 		<div id="newpicform">
-			<p>
+			<div>
 			<label>Image
-				<img id="imgpreview" ng-src="{{pic.link}}" alt="new Image">
+				<div class="imgpreview" ng-class="getClass()">
+					<img id="imgpreview" ng-src="{{pic.link}}" alt="new Image">
+				</div>
 			</label>
-			</p>
+			</div>
 			<form name="picform" novalidate>
 				<p>
 					<label>
@@ -22,26 +24,45 @@
 						<input id="imgsrc" type="text" name="link" ng-model="pic.link">
 					</label>
 				</p>
+				<p>
+					<div class="size">
+						<label>Standard
+							<input type="radio" ng-model="pic.size" name="size" value="Standard">
+						</label>
+						<label>MediumWide
+							<input type="radio" ng-model="pic.size" name="size" value="MediumW">
+						</label>
+						<label>MediumTall
+							<input type="radio" ng-model="pic.size" name="size" value="MediumT">
+						</label>
+						<label>MediumWideTall
+							<input type="radio" ng-model="pic.size" name="size" value="MediumWT">
+						</label>
+					</div>
+				</p>
 				<button id="submit" type="submit" ng-click="addPic()">Submit</button>
 			</form>
 		</div>
 
-
-      <div class="imglist">
-	    <div class="grid">
-	        <div class="imgbum" ng-repeat="image in imgList">
-	        	<button ng-click="remove(image)">X</button>
-		        <div class="pic">
-		          <img ng-src="{{image.link}}" alt="{{image.description}}">
-		        </div>
-				<div class="desc"><p>{{image.description}}</p>
-				  <span class="user"><a href="/user/{{image.user._id}}">{{image.user.name}}</a></span>
-				  <span class="likescount">likes: {{image.userlikes.length}}</span>
-				</div>  
-	          <button ng-click="meLike(image)">I Like</button>
+	  <div class="imglist">
+	    <div class="imgbum" ng-repeat="image in imgList">
+	      <div class="grid-item {{image.size}}">
+	      	<button ng-click="remove(image)">X</button>
+	        <div class="pic">
+	          <img ng-src="{{image.link}}" alt="{{image.description}}">
 	        </div>
+	        <div class="desc">
+	          <p>{{image.description}}</p>
+	          <a class="user" href="/user/{{image.user._id}}">{{image.user.name}}</a>
+	          <span class="likescount">likes: {{image.userlikes.length}}</span>
+	          <button ng-show="isLoggedIn()" ng-click="meLike(image)">I Like</button>
+	        </div>  
+	      </div>
 	    </div>
 	  </div>
+
+
+
     </div>
   </div>
 </div>
