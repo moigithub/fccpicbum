@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('basej5pintApp')
-  .controller('MainCtrl', function ($scope, $http, Auth) {
+  .controller('MainCtrl', function ($scope, $http, Auth, effects) {
     $scope.imgList=[];
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.getCurrentUser = Auth.getCurrentUser;
+
+    $scope.randomEffect = effects.randomEffect;
 
     $http.get("/api/images").success(function(images){
       $scope.imgList=images;

@@ -45,8 +45,8 @@
 		</div>
 
 	  <div class="imglist">
-	    <div class="imgbum" ng-repeat="image in imgList">
-	      <div class="grid-item {{image.size}}">
+	    <div class="grid-item imgbum animated rubberBand" ng-repeat="image in imgList">
+	      <div class="{{image.size}}">
 	      	<button class="rembtn btn btn-danger" ng-click="remove(image)">X</button>
 	        <div class="pic">
 	          <img ng-src="{{image.link}}" alt="{{image.description}}">
@@ -72,6 +72,7 @@ $(document).ready(function(){
 	$('#imgpreview').error(function(){
         $(this).attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png');
 	});
+
 });
 </script>
 

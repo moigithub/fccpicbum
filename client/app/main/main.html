@@ -9,8 +9,8 @@
 
 <div class="container">
   <div class="imglist">
-    <div class="imgbum" ng-repeat="image in imgList">
-      <div class="grid-item {{image.size}}">
+    <div class="grid-item imgbum animated rubberBand" ng-repeat="image in imgList">
+      <div class="{{image.size}}">
         <div class="pic">
           <img ng-src="{{image.link}}" alt="{{image.description}}">
         </div>
@@ -25,11 +25,10 @@
 
 </div>
 
-
 <footer class="footer">
   <div class="container">
-      <p>Angular Fullstack v2.1.1 |
-        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
+      <p>Angular Fullstack - Freecodecamp |
+        <a href="https://twitter.com/mcarlosman">@mcarlosman</a> |
+         <a href="https://github.com/moigithub/">Github</a></p>
   </div>
 </footer>

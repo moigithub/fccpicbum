@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('basej5pintApp')
-  .controller('PicboardCtrl', function ($scope, $http, Auth) {
+  .controller('PicboardCtrl', function ($scope, $http, Auth, effects) {
     $scope.imgList=[];
     $scope.getCurrentUser = Auth.getCurrentUser;
     $scope.pic={link:"", size:"Standard"};
+
+    $scope.randomEffect = effects.randomEffect;
 
     $http.get("/api/images/user/"+$scope.getCurrentUser()._id).success(function(images){
       $scope.imgList=images;
@@ -22,7 +24,7 @@ angular.module('basej5pintApp')
         userlikes:[],
         user:$scope.getCurrentUser()._id
       };
-console.log(picObj);
+//console.log(picObj);
       $http.post("/api/images", picObj).success(function(image){
         $scope.imgList.push(image);
       });

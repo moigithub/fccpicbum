@@ -21,6 +21,7 @@
       <!-- injector:css -->
       <link rel="stylesheet" href="app/account/login/login.css">
       <link rel="stylesheet" href="app/admin/admin.css">
+      <link rel="stylesheet" href="app/animate.css">
       <link rel="stylesheet" href="app/app.css">
       <link rel="stylesheet" href="app/main/main.css">
       <link rel="stylesheet" href="app/picboard/picboard.css">
@@ -28,6 +29,9 @@
       <link rel="stylesheet" href="components/modal/modal.css">
       <!-- endinjector -->
     <!-- endbuild -->
+
+    <link rel="stylesheet" href="app/animate.css">
+
   </head>
   <body ng-app="basej5pintApp">
     <!--[if lt IE 7]>
@@ -56,11 +60,14 @@
       <!-- bower:js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/angular/angular.js"></script>
-      <script src="bower_components/angular-resource/angular-resource.js"></script>
-      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-      <script src="bower_components/angular-route/angular-route.js"></script>
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+      <script src="bower_components/angular-resource/angular-resource.js"></script>
+      <script src="bower_components/angular-route/angular-route.js"></script>
+      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+      <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+      <script src="bower_components/eventie/eventie.js"></script>
+      <script src="bower_components/imagesloaded/imagesloaded.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
@@ -78,6 +85,7 @@
           <script src="app/admin/admin.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="app/picboard/effects.service.js"></script>
           <script src="app/picboard/picboard.controller.js"></script>
           <script src="app/picboard/picboard.js"></script>
           <script src="app/user/user.controller.js"></script>
@@ -90,22 +98,25 @@
           <!-- endinjector -->
         <!-- endbuild -->
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.min.js"></script>
   <script type="text/javascript">
   $(document).ready(function(){
 
-    $('.imglist').masonry({
-      // options
-      itemSelector: '.grid-item',
-      columnWidth: 200,
-      transitionDuration: '0.3s',
-      isAnimated: true,
-      animationOptions: {
-        duration: 750,
-        easing: 'linear',
-        queue: false
-      }
+    var $container=$('.imglist');
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        // options
+        itemSelector: '.grid-item',
+        columnWidth: 100
+/*        ,transitionDuration: '0.3s',
+        isAnimated: true,
+        animationOptions: {
+          duration: 750,
+          easing: 'linear',
+          queue: false
+        }
+*/        
+      });
     });
 
     $('img').error(function(){
