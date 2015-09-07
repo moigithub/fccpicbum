@@ -47,7 +47,7 @@
 	  <div class="imglist">
 	    <div class="imgbum" ng-repeat="image in imgList">
 	      <div class="grid-item {{image.size}}">
-	      	<button ng-click="remove(image)">X</button>
+	      	<button class="rembtn btn btn-danger" ng-click="remove(image)">X</button>
 	        <div class="pic">
 	          <img ng-src="{{image.link}}" alt="{{image.description}}">
 	        </div>

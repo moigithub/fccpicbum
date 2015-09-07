@@ -64,6 +64,10 @@
     overflow: hidden;
 }
 
+.rembtn {
+    position:absolute;
+    right:5px;
+}
 .desc {
     position: absolute;
     bottom: 0px;
